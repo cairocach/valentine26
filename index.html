@@ -41,6 +41,7 @@
   #yes {
     background: #fff;
     color: #ff0000;
+    transform: scale(1);
   }
 
   #no {
@@ -53,7 +54,7 @@
   }
 
   #yes:hover {
-    transform: scale(1.15);
+    transform: scale(1.2);
   }
 
   #yes:active {
@@ -76,71 +77,4 @@
 
   @keyframes fall {
     0% { transform: translateY(-20px); opacity: 0; }
-    10% { opacity: 1; }
-    100% { transform: translateY(110vh); opacity: 0; }
-  }
-</style>
-</head>
-
-<body>
-<div id="container">
-  <h1>💖 Sofia, will you be my Valentine? 💖</h1>
-
-  <button id="yes" class="btn">Yes</button>
-  <button id="no" class="btn">No</button>
-
-  <div id="finalMessage">I love you hermosa ❤️</div>
-</div>
-
-<!-- YouTube background music -->
-<iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/WEwz9_0B2j8?autoplay=1&mute=1&loop=1&playlist=WEwz9_0B2j8"
-  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-<script>
-  // Hearts falling
-  const container = document.getElementById("container");
-
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.fontSize = (20 + Math.random() * 40) + "px";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-    container.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 7000);
-  }
-
-  setInterval(createHeart, 400);
-
-  // No button moving
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
-
-  noBtn.addEventListener("click", (e) => {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-
-    // Yes button grows slightly each time she clicks no
-    yesBtn.style.transform = "scale(" + (1 + Math.random() * 0.25 + 0.25) + ")";
-  });
-
-  // Yes button click
-  yesBtn.addEventListener("click", () => {
-    document.getElementById("yes").style.display = "none";
-    document.getElementById("no").style.display = "none";
-    document.getElementById("finalMessage").style.display = "block";
-
-    // Unmute music after click
-    const music = document.getElementById("music");
-    music.src = "https://www.youtube.com/embed/WEwz9_0B2j8?autoplay=1&loop=1&playlist=WEwz9_0B2j8";
-  });
-</script>
-</body>
-</html>
+    10% { opacity
