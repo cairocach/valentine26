@@ -94,7 +94,8 @@
 </div>
 
 <!-- YouTube background music (hidden) -->
-<iframe id="music" width="0" height="0" src=""
+<iframe id="music" width="0" height="0"
+  src="https://www.youtube.com/embed/WEwz9_0B2j8?autoplay=1&mute=1&loop=1&playlist=WEwz9_0B2j8"
   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 <script>
@@ -130,8 +131,8 @@
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 
-    // Increase YES size every time NO is clicked
-    yesScale += 0.15;
+    // Increase YES size faster every time NO is clicked
+    yesScale += 0.25;
     yesBtn.style.transform = `scale(${yesScale})`;
   });
 
@@ -141,7 +142,7 @@
     document.getElementById("no").style.display = "none";
     document.getElementById("finalMessage").style.display = "block";
 
-    // Play music when yes is clicked
+    // Unmute music when yes is clicked
     const music = document.getElementById("music");
     music.src = "https://www.youtube.com/embed/WEwz9_0B2j8?autoplay=1&loop=1&playlist=WEwz9_0B2j8";
   });
